@@ -17,7 +17,7 @@ public class PracticeForm {
     static void setUp() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1720x1440";
+        Configuration.browserSize = "1920x1080";
     }
 
 
@@ -40,19 +40,20 @@ public class PracticeForm {
         $("#uploadPicture").uploadFromClasspath("2.jpg");
 
         $("#currentAddress").setValue("Dagestanskaya Street");
+
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+
         $("#state").click();
-        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#stateCity-wrapper").$(byText("Haryana")).click();
+
         $("#city").click();
-        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#stateCity-wrapper").$(byText("Karnal")).click();
+
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text("Timur Maksyutov"));
-
-
-
-
-
 
     }
 
