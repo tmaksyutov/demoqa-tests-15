@@ -34,7 +34,7 @@ public class PracticeForm {
         $(".react-datepicker__day--007").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#subjectsInput").setValue("Russia");
-        $("#uploadPicture").uploadFile(new File("src/test/resources/IntelliJIDEA_ReferenceCard"));
+        $("#uploadPicture").uploadFromClasspath("resources\1.pdf");
 
 
     }
