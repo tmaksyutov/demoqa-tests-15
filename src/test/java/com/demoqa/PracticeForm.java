@@ -34,7 +34,7 @@ public class PracticeForm {
         $(".react-datepicker__day--007").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
         $("#subjectsInput").setValue("Russia");
-        $("#uploadPicture").uploadFromClasspath("resources\1.pdf");
+        $("#uploadPicture").uploadFromClasspath("2.jpg");
 
 
     }
