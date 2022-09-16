@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.awt.*;
 import java.io.File;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -26,6 +27,7 @@ public class PracticeForm {
         $("#firstName").setValue("Timur");
         $("#lastName").setValue("Maksyutov");
         $("#userEmail").setValue("tmaksyutov@mail.ru");
+
         $(".custom-control-label").click();
         $("#userNumber").setValue("89174565252");
         $("#dateOfBirthInput").click();
@@ -33,8 +35,23 @@ public class PracticeForm {
         $(".react-datepicker__year-select").selectOption("1994");
         $(".react-datepicker__day--007").click();
         $("#hobbiesWrapper").$(byText("Sports")).click();
-        $("#subjectsInput").setValue("Russia");
+        $("#subjectsInput").setValue("English").pressEnter();
+
         $("#uploadPicture").uploadFromClasspath("2.jpg");
+
+        $("#currentAddress").setValue("Dagestanskaya Street");
+        $("#state").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
+        $("#city").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
+        $("#submit").click();
+
+        $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
+        $(".table-responsive").shouldHave(text("Timur Maksyutov"));
+
+
+
+
 
 
     }
