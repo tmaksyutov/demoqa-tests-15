@@ -4,9 +4,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -28,8 +25,8 @@ public class PracticeForm {
         $("#lastName").setValue("Maksyutov");
         $("#userEmail").setValue("tmaksyutov@mail.ru");
 
-        $(".custom-control-label").click();
-        $("#userNumber").setValue("89174565252");
+        $("#genterWrapper").$(byText("Male")).click();
+        $("#userNumber").setValue("8917456525");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").selectOption("September");
         $(".react-datepicker__year-select").selectOption("1994");
@@ -45,15 +42,24 @@ public class PracticeForm {
         executeJavaScript("$('#fixedban').remove()");
 
         $("#state").click();
-        $("#stateCity-wrapper").$(byText("Haryana")).click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
 
         $("#city").click();
-        $("#stateCity-wrapper").$(byText("Karnal")).click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
 
         $("#submit").click();
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Timur Maksyutov"));
+        $(".table-responsive").shouldHave(text("Timur Maksyutov"),
+            text("tmaksyutov@mail.ru"),
+            text("Male"),
+            text("8917456525"),
+            text("07 September,1994"),
+            text("English"),
+            text("Sports"),
+            text("2.jpg"),
+            text("Dagestanskaya Street"),
+            text("NCR Delhi"));
 
     }
 
