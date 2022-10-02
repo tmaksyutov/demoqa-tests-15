@@ -14,10 +14,10 @@ public class ResultsTableComponent {
         return this;
 
     }
-    public ResultsTableComponent checkResult(String key, String value) {
-        $(".table-responsive").$(byText(key))
-                .parent().shouldHave(text(value));
-
+    public ResultsTableComponent checkResult(String ... strings) {
+        for (String s : strings) {
+            $(".table-responsive").shouldHave(text(s));
+        }
         return this;
 
     }

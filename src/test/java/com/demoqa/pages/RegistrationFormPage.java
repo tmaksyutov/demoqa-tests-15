@@ -3,12 +3,15 @@ package com.demoqa.pages;
 import com.codeborne.selenide.SelenideElement;
 import com.demoqa.pages.components.CalendarComponent;
 import com.demoqa.pages.components.ResultsTableComponent;
+import com.demoqa.pages.components.UploadFileComponent;
+
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationFormPage {
     private final CalendarComponent calendarComponent = new CalendarComponent();
     private final ResultsTableComponent resultsTableComponent  = new ResultsTableComponent();
+    private final UploadFileComponent uploadFileComponent = new UploadFileComponent();
     private final SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -56,7 +59,7 @@ public class RegistrationFormPage {
 
         return this;
     }
-    public RegistrationFormPage setBirthDate(String day,String month,String year){
+    public RegistrationFormPage setDate(String day,String month,String year){
         birthDateInput.click();
         calendarComponent.setDate(day, month, year);
 
@@ -72,8 +75,8 @@ public class RegistrationFormPage {
 
         return this;
     }
-    public RegistrationFormPage setUploadPicture (String fileName){
-        pictureUpload.uploadFromClasspath(fileName);
+    public RegistrationFormPage setUploadPicture (String path){
+        uploadFileComponent.uploadFile(path);
 
         return this;
     }
@@ -95,6 +98,7 @@ public class RegistrationFormPage {
 
     }
     public void setSubmit() {
+
         submitButton.click();
     }
 
@@ -102,8 +106,8 @@ public class RegistrationFormPage {
             resultsTableComponent.checkVisible();
             return this;
         }
-        public RegistrationFormPage checkResult(String key, String value) {
-            resultsTableComponent.checkResult(key, value);
+        public RegistrationFormPage checkResultTableData(String... strings) {
+            resultsTableComponent.checkResult(strings);
             return this;
         }
     }
