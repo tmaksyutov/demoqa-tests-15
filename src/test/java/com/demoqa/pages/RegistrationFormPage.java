@@ -23,6 +23,7 @@ public class RegistrationFormPage {
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
             submitButton = $("#submit");
+
     public RegistrationFormPage openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
