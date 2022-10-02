@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationFormPage {
     private final CalendarComponent calendarComponent = new CalendarComponent();
     private final ResultsTableComponent resultsTableComponent  = new ResultsTableComponent();
-    //Elements
     private final SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -24,12 +23,6 @@ public class RegistrationFormPage {
             stateInput = $("#react-select-3-input"),
             cityInput = $("#react-select-4-input"),
             submitButton = $("#submit");
-
-
-
-    //Actions
-
-
     public RegistrationFormPage openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove()");
@@ -42,14 +35,6 @@ public class RegistrationFormPage {
 
         return this;
     }
-    /*
-    public RegistrationFormPage clearFirstName(){
-
-        firstNameInput.clear();
-
-        return this;
-    }
-    */
     public RegistrationFormPage setLastName(String value) {
         lastNameInput.setValue(value);
 
