@@ -83,13 +83,13 @@ public class RegistrationFormPage {
         return this;
     }
     public RegistrationFormPage setState(String state) {
-        $(stateInput).setValue(state).pressEnter();
+        stateInput.setValue(state).pressEnter();
 
         return this;
 
     }
     public RegistrationFormPage setCity(String city) {
-        $(cityInput).setValue(city).pressEnter();
+        cityInput.setValue(city).pressEnter();
 
         return this;
 
