@@ -20,7 +20,7 @@ public class UserData {
     public static String address = faker.address().fullAddress();
     public static String state = "NCR";
     public static String city = "Delhi";
-    public static String day = String.valueOf(faker.number().numberBetween(1, 31));
+    public static String day = String.valueOf(faker.number().numberBetween(1, 27));
     public static String month = String.valueOf(Month.getRandomMonth());
     public static String year = String.valueOf(faker.number().numberBetween(1940, 2015));
     public static String date = day + " " + month + "," + year;
