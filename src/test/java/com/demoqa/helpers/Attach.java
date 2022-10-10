@@ -15,8 +15,6 @@ import static org.openqa.selenium.logging.LogType.BROWSER;
 
 public class Attach {
 
-    private static final String VIDEO_URL = "https://selenoid.autotests.cloud/video/";
-    private static final String VIDEO_FORMAT = ".mp4";
     @Attachment(value = "{attachName}", type = "image/png")
     public static byte[] screenshotAs(String attachName) {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
