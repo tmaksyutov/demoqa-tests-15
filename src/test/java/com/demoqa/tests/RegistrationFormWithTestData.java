@@ -13,13 +13,6 @@ import static io.qameta.allure.Allure.step;
 
 public class RegistrationFormWithTestData extends TestBase {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last Screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
     @DisplayName("Форма регистрации")
     @Owner("Тимур Максютов")
     @Severity(SeverityLevel.BLOCKER)
