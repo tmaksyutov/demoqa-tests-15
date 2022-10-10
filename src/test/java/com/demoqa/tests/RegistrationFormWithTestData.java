@@ -6,11 +6,10 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import static com.demoqa.testData.UserData.*;
 import static io.qameta.allure.Allure.step;
 
-public class RegistrationFormWithTestData {
+public class RegistrationFormWithTestData extends TestBase {
     RegistrationFormPage registrationFormPage = new RegistrationFormPage();
 
     @DisplayName("Форма регистрации")
