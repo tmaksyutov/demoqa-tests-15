@@ -11,17 +11,16 @@ import org.openqa.selenium.remote.DesiredCapabilities;
     public class TestBase {
 
         @BeforeAll
-        static void setUp(){
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        static void configure(){
+            SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+            DesiredCapabilities capabilities = new DesiredCapabilities();;
+            capabilities.setCapability("enableVNC", true);
+            capabilities.setCapability("enableVideo", true);
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
+            Configuration.browserCapabilities = capabilities;
+            Configuration.baseUrl = "https://demoqa.com";
+            Configuration.browserSize = "1920x1080";
+            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
         @AfterEach
         void addAttachments() {
