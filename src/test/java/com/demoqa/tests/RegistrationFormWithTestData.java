@@ -1,5 +1,6 @@
 package com.demoqa.tests;
 
+import com.demoqa.helpers.Attach;
 import com.demoqa.pages.RegistrationFormPage;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Severity;
